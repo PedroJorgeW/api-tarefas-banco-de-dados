@@ -4,6 +4,8 @@ import com.trabalhoinicio.apitarefas.model.Tarefa;
 import com.trabalhoinicio.apitarefas.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -54,4 +56,5 @@ public class TarefaController {
             return ResponseEntity.notFound().build(); // 404 - não encontrado
         }
     }
+}
 
