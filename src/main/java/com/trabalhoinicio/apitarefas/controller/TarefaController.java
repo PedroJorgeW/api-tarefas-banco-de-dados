@@ -1,7 +1,7 @@
-package controller;
+package com.trabalhoinicio.apitarefas.controller;
 
 import com.trabalhoinicio.apitarefas.model.Tarefa;
-import repositorio.TarefaRepository;
+import com.trabalhoinicio.apitarefas.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +46,12 @@ public class TarefaController {
 
     // Remover
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        tarefaRepository.deleteById(id);
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        if (tarefaRepository.existsById(id)) {
+            tarefaRepository.deleteById(id);
+            return ResponseEntity.noContent().build(); // 204 - sucesso
+        } else {
+            return ResponseEntity.notFound().build(); // 404 - não encontrado
+        }
     }
-}
+

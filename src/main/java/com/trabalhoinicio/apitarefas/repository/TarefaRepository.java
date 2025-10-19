@@ -1,4 +1,4 @@
-package repositorio;
+package com.trabalhoinicio.apitarefas.repository;
 
 import com.trabalhoinicio.apitarefas.model.Tarefa;
 import org.springframework.data.jpa.repository.JpaRepository;
